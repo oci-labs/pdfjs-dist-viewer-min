@@ -1,0 +1,25 @@
+{
+  "name": "pdfjs-dist-viewer-min",
+  "description": "Generic minified build of Mozilla's PDF.js library including the viewer component.",
+  "authors": [
+    "Mozilla"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [
+    "PDF.js",
+    "pdf",
+    "pdf.js",
+    "pdfjs",
+    "Mozilla",
+    "pdfjs-dist",
+    "viewer"
+  ],
+  "homepage": "https://github.com/oci-labs/pdfjs-dist-viewer-min",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
