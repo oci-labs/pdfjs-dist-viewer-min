@@ -7,6 +7,6 @@ parsing and rendering PDFs.
 This is a pre-built version of the PDF.js source code.  I was unable to find
 a distribution of PDF.js that was both minified and included the viewer.html
 component.  This is essentially just the files produced by running:
-`node make minified` against the upstream repo.
+`gulp minified` against the upstream repo.
 
 See https://github.com/mozilla/pdf.js for learning and contributing.
