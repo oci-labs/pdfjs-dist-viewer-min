@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.OptionKind = exports.AppOptions = void 0;
 
-var _pdf = require("../pdf");
-
 var _viewer_compatibility = require("./viewer_compatibility.js");
 
 const OptionKind = {
@@ -29,6 +27,11 @@ const defaultOptions = {
     value: "",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
+  disableCreateObjectURL: {
+    value: false,
+    compatibility: _viewer_compatibility.viewerCompatibilityParams.disableCreateObjectURL,
+    kind: OptionKind.VIEWER
+  },
   disableHistory: {
     value: false,
     kind: OptionKind.VIEWER
@@ -37,15 +40,15 @@ const defaultOptions = {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
+  enablePermissions: {
+    value: false,
+    kind: OptionKind.VIEWER + OptionKind.PREFERENCE
+  },
   enablePrintAutoRotate: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   enableWebGL: {
-    value: false,
-    kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  },
-  eventBusDispatchToDOM: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
@@ -77,6 +80,10 @@ const defaultOptions = {
   pdfBugEnabled: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
+  },
+  printResolution: {
+    value: 150,
+    kind: OptionKind.VIEWER
   },
   renderer: {
     value: "canvas",
@@ -122,11 +129,6 @@ const defaultOptions = {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
   },
-  disableCreateObjectURL: {
-    value: false,
-    compatibility: _pdf.apiCompatibilityParams.disableCreateObjectURL,
-    kind: OptionKind.API
-  },
   disableFontFace: {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
@@ -141,6 +143,10 @@ const defaultOptions = {
   },
   docBaseUrl: {
     value: "",
+    kind: OptionKind.API
+  },
+  fontExtraProperties: {
+    value: false,
     kind: OptionKind.API
   },
   isEvalSupported: {
