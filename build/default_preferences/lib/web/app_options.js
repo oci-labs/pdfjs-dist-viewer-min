@@ -27,11 +27,6 @@ const defaultOptions = {
     value: "",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
-  disableCreateObjectURL: {
-    value: false,
-    compatibility: _viewer_compatibility.viewerCompatibilityParams.disableCreateObjectURL,
-    kind: OptionKind.VIEWER
-  },
   disableHistory: {
     value: false,
     kind: OptionKind.VIEWER
@@ -90,7 +85,7 @@ const defaultOptions = {
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   renderInteractiveForms: {
-    value: false,
+    value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   sidebarViewOnLoad: {
