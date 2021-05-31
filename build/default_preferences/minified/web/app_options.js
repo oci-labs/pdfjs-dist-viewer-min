@@ -76,10 +76,6 @@ var defaultOptions = {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
-  enableWebGL: {
-    value: false,
-    kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  },
   externalLinkRel: {
     value: "noopener noreferrer nofollow",
     kind: OptionKind.VIEWER
@@ -115,7 +111,7 @@ var defaultOptions = {
   },
   renderer: {
     value: "canvas",
-    kind: OptionKind.VIEWER + OptionKind.PREFERENCE
+    kind: OptionKind.VIEWER
   },
   renderInteractiveForms: {
     value: true,
@@ -179,7 +175,7 @@ var defaultOptions = {
   },
   enableXfa: {
     value: false,
-    kind: OptionKind.API
+    kind: OptionKind.API + OptionKind.PREFERENCE
   },
   fontExtraProperties: {
     value: false,
@@ -223,6 +219,7 @@ var defaultOptions = {
     value: "../build/pdf.sandbox.js",
     kind: OptionKind.VIEWER
   };
+  defaultOptions.renderer.kind += OptionKind.PREFERENCE;
 }
 var userOptions = Object.create(null);
 
