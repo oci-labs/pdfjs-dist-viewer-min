@@ -1,3 +1,6 @@
+Changes to use LPi URLs are in this branch: https://github.com/liturgicalpublications/pdfjs-dist-viewer-min/tree/edit-url-whitelist
+OD obtains the package from the branch above, not the main branch.
+
 # PDF.js Minified Distribution With Viewer
 
 PDF.js is a Portable Document Format (PDF) library that is built with HTML5.
