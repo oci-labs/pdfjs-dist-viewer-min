@@ -1,6 +1,6 @@
 {
   "name": "pdfjs-dist-viewer-min",
-  "version": "2.12.313",
+  "version": "3.11.174",
   "description": "Generic minified build of Mozilla's PDF.js library including the viewer component.",
   "repository": {
     "type": "git",
@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/mozilla/pdf.js/issues"
   },
-  "homepage": "http://mozilla.github.io/pdf.js/"
+  "homepage": "http://mozilla.github.io/pdf.js/",
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  }
 }
