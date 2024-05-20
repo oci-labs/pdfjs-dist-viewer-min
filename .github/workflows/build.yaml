@@ -35,14 +35,13 @@ jobs:
           cd ..
       - name: Install pdfjs-dist-viewer-min dependencies
         run: npm install
-      - name: Build pdf.js generic
+      - name: Build pdf.js minified
         run: |
-          npx gulp --cwd pdf.js generic
-          npx gulp --cwd pdf.js image_decoders
+          npx gulp --cwd pdf.js minified
       - name: Deploy into build/minified
         run: |
-          rsync -rtlDPvc --delete pdf.js/build/generic/ build/minified/
-          rsync -rtlDPvc --delete pdf.js/build/default_preferences/generic/ build/default_preferences/minified/web/
+          rsync -rtlDPvc --delete pdf.js/build/minified/ build/minified/
+          rsync -rtlDPvc --delete pdf.js/build/default_preferences/minified/ build/default_preferences/minified/web/
           rsync -rtlDPvc pdf.js/build/image_decoders build/minified/
       - name: Git Status
         run: |
