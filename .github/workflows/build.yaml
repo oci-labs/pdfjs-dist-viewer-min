@@ -42,7 +42,6 @@ jobs:
         run: |
           rsync -rtlDPvc --delete pdf.js/build/minified/ build/minified/
           rsync -rtlDPvc --delete pdf.js/build/default_preferences/minified/ build/default_preferences/minified/web/
-          rsync -rtlDPvc pdf.js/build/image_decoders build/minified/
       - name: Git Status
         run: |
           git status --porcelain
