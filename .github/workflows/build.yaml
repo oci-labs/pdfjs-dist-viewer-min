@@ -52,5 +52,5 @@ jobs:
           git add -A
           git commit -m "Build of ${{ env.PDFJS_VERSION }}"
           git tag ${{ env.PDFJS_VERSION }}
-          git push origin main --tags
+          git push origin ${{ env.PDFJS_VERSION }} -f
 
