@@ -1,0 +1,55 @@
+name: "build pdfjs"
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Installs jq
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install jq
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - name: Get package.json version
+        run: |
+          echo "PDFJS_VERSION=v$(jq .version package.json | sed 's#\": ##g')" >> $GITHUB_ENV
+      - name: Get latest pdf.js source
+        run: |
+          git clone --depth 5 --branch ${{ env.PDFJS_VERSION }} https://github.com/mozilla/pdf.js.git
+      - name: Install pdf.js dependencies
+        run: |
+          cd pdf.js
+          npm install
+          cd ..
+      - name: Install pdfjs-dist-viewer-min dependencies
+        run: npm install
+      - name: Build pdf.js minified
+        run: |
+          npx gulp --cwd pdf.js minified
+      - name: Deploy into build/minified
+        run: |
+          rsync -rtlDPvc --delete pdf.js/build/minified/ build/minified/
+          rsync -rtlDPvc --delete pdf.js/build/default_preferences/minified/ build/default_preferences/minified/web/
+      - name: Commit and tag if there are changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name 'github-actions'
+            git config user.email 'github-actions@users.noreply.github.com'
+            git add -A
+            git commit -m "Build of ${{ env.PDFJS_VERSION }}"
+            git tag ${{ env.PDFJS_VERSION }}
+            git push origin ${{ env.PDFJS_VERSION }} -f
+          fi
+
